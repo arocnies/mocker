@@ -3,8 +3,24 @@
 
 import 'package:angular2/core.dart';
 
+import 'table.dart';
+import 'dart:html';
+
 @Component(
     selector: 'my-app',
     styleUrls: const ['app_component.css'],
     templateUrl: 'app_component.html')
-class AppComponent {}
+class AppComponent {
+  String tableRegex = tableCreationRegExp.pattern.toString();
+  String fieldRegex = tableElementsRegExp.pattern.toString();
+  String output = "";
+
+  void run() {
+    TextAreaElement input = querySelector('#input');
+    Element output = querySelector('#output');
+    output.children.clear();
+    getTablesFromString(input.value).forEach(
+        (t) => output.append(new Element.p()..appendText(t.toString())));
+  }
+
+}
