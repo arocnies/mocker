@@ -1,9 +1,25 @@
-Table Definition regex <input [(ngModel)]="tableRegex">
-Field Definition regex <input [(ngModel)]="fieldRegex">
-<p></p>
-<textarea rows="5" cols="80" id="input"></textarea>
-<p></p>
-<button (click)="run()">Run</button>
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">README</span>
+        <p>Content...</p>
+    </div>
+</div>
 
+<textarea id="input" placeholder="DDL Text" style="resize: vertical; min-height: 200px"></textarea>
+
+<div class="input-field">
+    <input id="regex_table" type="text" class="validate" [(ngModel)]="tableRegex">
+    <label class="active" for="regex_table">Table Regex</label>
+</div>
+
+<div class="input-field">
+    <input id="regex_field" type="text" class="validate" [(ngModel)]="fieldRegex">
+    <label class="active" for="regex_field">Field Regex</label>
+</div>
+
+<a class="btn" (click)="processTables()">Process Tables</a>
+
+<a id='download' class="btn" href='javascript:void(0)' download='mocker.txt'>Download</a>
 <p id="output">{{output}}</p>
-<a id='download' href='javascript:void(0)' download='Hello.txt'>Download</a>
+
+<my-tables></my-tables>
