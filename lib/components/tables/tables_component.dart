@@ -12,8 +12,8 @@ import 'package:mocker/app_component.dart';
     templateUrl: 'tables_component.html',)
 class TablesComponent {
   Table selectedTable;
-  get tables => tablesList;
-  get fields => selectedTable.fields;
+  List<Table> get tables => tablesList;
+  List<Field> get fields => selectedTable.fields;
 
   onSelect(Table t) {
     selectedTable = t;

@@ -12,15 +12,22 @@ import 'package:mocker/app_component.dart';
     styleUrls: const ['generator_component.css'],
     templateUrl: 'generator_component.html',)
 class GeneratorComponent {
-  double dataSize;
+  double dataSize = 1.0;
 
   onGenerate() {
     tablesList.forEach((t) {
-      StringBuffer sb = new StringBuffer();
-      t.fields.forEach((f) {
-        sb.write('${f.newRandomValue},');
-      });
-      Blob blob = new Blob([sb.toString()]);
+      StringBuffer sb = new StringBuffer('\r\n');
+      Blob blob;
+      do {
+        String s = sb.toString();
+        s = s.substring(0, s.length - 1) + '\r\n';
+        sb = new StringBuffer(s);
+        blob = new Blob([s]);
+        t.fields.forEach((f) {
+          sb.write('${f.newRandomValue},');
+        });
+      } while (blob.size < dataSize * 1000);
+
       querySelector('#downloadLink')
         ..setAttribute('href', Url.createObjectUrl(blob))
         ..setAttribute('download', '${t.name}.csv')
