@@ -2,8 +2,9 @@
 
 
     <div class="input-field col s3">
-        <input id="gen_size" type="number" class="validate">
+        <input id="gen_size" type="number" class="validate" [(ngModel)]="dataSize">
         <label class="active" for="gen_size">Data Size (MB)</label>
     </div>
-    <div class="btn">Generate</div>
+    <div class="btn" (click)="onGenerate()">Generate</div>
+    <a id="downloadLink" href='javascript:void(0)' download=''></a>
 </div>

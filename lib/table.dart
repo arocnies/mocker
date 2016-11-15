@@ -59,21 +59,29 @@ class Field {
   var arg;
   Function genFunction;
 
+  static final Random rng = new Random();
+  static final Map<Type, Function> defaultFunctions = {
+    Type.INT : (a) => '${getDidgitString(int.parse(a))}',
+    Type.INTEGER : (a) => '${getDidgitString(int.parse(a))}',
+    Type.CHAR : (a) => '${getDidgitString(int.parse(a))}',
+    Type.VARCHAR : (a) => '${getDidgitString(int.parse(a))}',
+    Type.ENUM : (a) => '${a.split(',')[rng.nextInt(a.split(',').length-1)]}',
+    Type.UNKNOWN : (a) => r'\N',
+  };
+
+  static String getDidgitString(int n) {
+    var sb = new StringBuffer();
+    for (var i = 0; i < 4; i++) {
+      sb.write(rng.nextInt(10));
+    }
+    return sb.toString();
+  }
+
   Field(this.name, String type, this.arg) {
     this.type = Type.values.firstWhere(
         (v) => v.toString() == type.toUpperCase(), orElse: () => Type.UNKNOWN);
-    genFunction = defaultFunctions[type];
+    genFunction = defaultFunctions[this.type];
   }
-
-  static final Random rng = new Random();
-  static final Map<Type, Function> defaultFunctions = {
-    Type.INT : (a) => '${rng.nextInt(9)}'*a,
-    Type.INTEGER : (a) => '${rng.nextInt(9)}'*a,
-    Type.CHAR : (a) => '${rng.nextInt(9)}'*a,
-    Type.VARCHAR : (a) => '${rng.nextInt(9)}'*a,
-    Type.ENUM : (a) => '${a.split(',')[rng.nextInt(a.length)]}',
-    Type.UNKNOWN : (a) => r'\N',
-  };
 
   get newRandomValue => genFunction(arg);
 
