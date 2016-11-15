@@ -1,5 +1,5 @@
 <div class="row" *ngIf="tables.length > 0">
-    <div class="col l3 m2">
+    <div class="col l3 m3 s12">
         <div class="collection">
             <a href="#!" *ngFor="let table of tables"
                [class.active]="table==selectedTable"
@@ -9,10 +9,10 @@
             </a>
         </div>
     </div>
-    <div class="col l9 m10 s11">
+    <div class="col l9 m9 s12">
         <div *ngIf="selectedTable != null" class="card-panel">
             <h4>{{selectedTable.name}}</h4>
-            <table class="bordered">
+            <table class="bordered responsive-table">
                 <thead>
                     <tr>
                         <th>Field</th>

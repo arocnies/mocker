@@ -55,7 +55,7 @@ class Type {
 
 class Field {
   String name;
-  var type;
+  Type type;
   var arg;
   Function genFunction;
 
@@ -74,6 +74,8 @@ class Field {
     Type.ENUM : (a) => '${a.split(',')[rng.nextInt(a.length)]}',
     Type.UNKNOWN : (a) => r'\N',
   };
+
+  get newRandomValue => genFunction(arg);
 
   String toString() {
     return "$name $type($arg)";

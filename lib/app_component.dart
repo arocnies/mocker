@@ -4,6 +4,8 @@
 import 'package:angular2/core.dart';
 
 import 'package:mocker/components/tables/tables_component.dart';
+import 'package:mocker/components/generator_component/generator_component.dart';
+
 import 'table.dart';
 import 'dart:html';
 
@@ -11,7 +13,7 @@ import 'dart:html';
     selector: 'my-app',
     styleUrls: const ['app_component.css'],
     templateUrl: 'app_component.html',
-    directives: const [TablesComponent])
+    directives: const [TablesComponent, GeneratorComponent])
 class AppComponent {
   String tableRegex = tableCreationRegExp.pattern.toString();
   String fieldRegex = tableElementsRegExp.pattern.toString();
