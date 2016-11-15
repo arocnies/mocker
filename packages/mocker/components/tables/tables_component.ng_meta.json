@@ -1,0 +1,79 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "package:mocker/table.dart",
+        "5": false
+      },
+      {
+        "1": "package:mocker/app_component.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "TablesComponent"
+      }
+    ],
+    "6": "tables_component.dart",
+    "7": [
+      {
+        "1": "package:angular2/core.template.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:mocker/table.template.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:mocker/app_component.template.dart",
+        "4": "i2"
+      }
+    ]
+  },
+  "type": {
+    "TablesComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "my-tables",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "TablesComponent",
+        "moduleUrl": "asset:mocker/lib/components/tables/tables_component.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 0,
+        "template": "<div class=\"row\" *ngIf=\"tables.length > 0\">\r\n    <div class=\"col l3 m3 s12\">\r\n        <div class=\"collection\">\r\n            <a href=\"#!\" *ngFor=\"let table of tables\"\r\n               [class.active]=\"table == selectedTable\"\r\n               (click)=\"onSelect(table)\"\r\n               class=\"collection-item truncate\">\r\n                {{table.name}}\r\n            </a>\r\n        </div>\r\n    </div>\r\n    <div class=\"col l9 m9 s12\">\r\n        <div *ngIf=\"selectedTable != null\" class=\"card-panel\">\r\n            <h4>{{selectedTable.name}}</h4>\r\n            <table class=\"bordered responsive-table\">\r\n                <thead>\r\n                    <tr>\r\n                        <th>Field</th>\r\n                        <th>Type</th>\r\n                        <th>Arg</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let field of fields\">\r\n                        <td>{{field.name}}</td>\r\n                        <td>{{field.type}}</td>\r\n                        <td>{{field.arg}}</td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n        </div>\r\n    </div>\r\n</div>\r\n",
+        "templateUrl": "asset:mocker/lib/components/tables/tables_component.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:mocker/lib/components/tables/tables_component.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

@@ -1,0 +1,69 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "package:mocker/table.dart",
+        "5": false
+      },
+      {
+        "1": "package:mocker/app_component.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "GeneratorComponent"
+      }
+    ],
+    "6": "generator_component.dart"
+  },
+  "type": {
+    "GeneratorComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "my-generator",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "GeneratorComponent",
+        "moduleUrl": "asset:mocker/lib/components/generator_component/generator_component.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 0,
+        "template": "<div class=\"card-panel\">\r\n\r\n\r\n    <div class=\"input-field col s3\">\r\n        <input id=\"gen_size\" type=\"number\" class=\"validate\" [(ngModel)]=\"dataSize\">\r\n        <label class=\"active\" for=\"gen_size\">Data Size (kB)</label>\r\n    </div>\r\n    <div class=\"btn\" (click)=\"onGenerate()\">Generate</div>\r\n    <a id=\"downloadLink\" href='javascript:void(0)' download=''></a>\r\n</div>\r\n",
+        "templateUrl": "asset:mocker/lib/components/generator_component/generator_component.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:mocker/lib/components/generator_component/generator_component.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

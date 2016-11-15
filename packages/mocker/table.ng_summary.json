@@ -1,0 +1,34 @@
+{
+  "ngDeps": null,
+  "type": {
+    "getTablesFromString": {
+      "class": "Identifier",
+      "name": "getTablesFromString",
+      "moduleUrl": "asset:mocker/lib/table.dart",
+      "prefix": null,
+      "value": null
+    },
+    "Table": {
+      "class": "Identifier",
+      "name": "Table",
+      "moduleUrl": "asset:mocker/lib/table.dart",
+      "prefix": null,
+      "value": null
+    },
+    "Type": {
+      "class": "Identifier",
+      "name": "Type",
+      "moduleUrl": "asset:mocker/lib/table.dart",
+      "prefix": null,
+      "value": null
+    },
+    "Field": {
+      "class": "Identifier",
+      "name": "Field",
+      "moduleUrl": "asset:mocker/lib/table.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

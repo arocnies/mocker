@@ -1,0 +1,33 @@
+<div class="row" *ngIf="tables.length > 0">
+    <div class="col l3 m3 s12">
+        <div class="collection">
+            <a href="#!" *ngFor="let table of tables"
+               [class.active]="table == selectedTable"
+               (click)="onSelect(table)"
+               class="collection-item truncate">
+                {{table.name}}
+            </a>
+        </div>
+    </div>
+    <div class="col l9 m9 s12">
+        <div *ngIf="selectedTable != null" class="card-panel">
+            <h4>{{selectedTable.name}}</h4>
+            <table class="bordered responsive-table">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Arg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let field of fields">
+                        <td>{{field.name}}</td>
+                        <td>{{field.type}}</td>
+                        <td>{{field.arg}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
