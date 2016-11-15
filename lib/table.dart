@@ -1,3 +1,5 @@
+import 'dart:math';
+
 RegExp tableCreationRegExp = new RegExp(r"CREATE TABLE (\w*)\s*\(([\s\S]*?)\)\;");
 RegExp tableElementsRegExp = new RegExp(r"[,\s]*([\w ]*?)[\s]*([\w]*)\(([\s\S]*?)\)[,\s]*?", caseSensitive: false);
 
@@ -55,11 +57,23 @@ class Field {
   String name;
   var type;
   var arg;
+  Function genFunction;
 
   Field(this.name, String type, this.arg) {
     this.type = Type.values.firstWhere(
         (v) => v.toString() == type.toUpperCase(), orElse: () => Type.UNKNOWN);
+    genFunction = defaultFunctions[type];
   }
+
+  static final Random rng = new Random();
+  static final Map<Type, Function> defaultFunctions = {
+    Type.INT : (a) => '${rng.nextInt(9)}'*a,
+    Type.INTEGER : (a) => '${rng.nextInt(9)}'*a,
+    Type.CHAR : (a) => '${rng.nextInt(9)}'*a,
+    Type.VARCHAR : (a) => '${rng.nextInt(9)}'*a,
+    Type.ENUM : (a) => '${a.split(',')[rng.nextInt(a.length)]}',
+    Type.UNKNOWN : (a) => r'\N',
+  };
 
   String toString() {
     return "$name $type($arg)";
