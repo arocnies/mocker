@@ -1,5 +1,4 @@
-<h4>Tables</h4>
-<div class="row">
+<div class="row" *ngIf="tables.length > 0">
     <div class="col l3 m2">
         <div class="collection">
             <a href="#!" *ngFor="let table of tables"
@@ -11,21 +10,21 @@
         </div>
     </div>
     <div class="col l9 m10 s11">
-        <div *ngIf="selectedTable != null">
+        <div *ngIf="selectedTable != null" class="card-panel">
             <h4>{{selectedTable.name}}</h4>
-            <table>
+            <table class="bordered">
                 <thead>
                     <tr>
                         <th>Field</th>
                         <th>Type</th>
-                        <th>Param</th>
+                        <th>Arg</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let field of fields">
                         <td>{{field.name}}</td>
                         <td>{{field.type}}</td>
-                        <td>{{field.param}}</td>
+                        <td>{{field.arg}}</td>
                     </tr>
                 </tbody>
             </table>

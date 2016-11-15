@@ -54,15 +54,15 @@ class Type {
 class Field {
   String name;
   var type;
-  var param;
+  var arg;
 
-  Field(this.name, String type, this.param) {
+  Field(this.name, String type, this.arg) {
     this.type = Type.values.firstWhere(
         (v) => v.toString() == type.toUpperCase(), orElse: () => Type.UNKNOWN);
   }
 
   String toString() {
-    return "$name $type($param)";
+    return "$name $type($arg)";
   }
 }
 
