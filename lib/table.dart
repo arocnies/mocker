@@ -61,15 +61,15 @@ class Field {
 
   static final Random rng = new Random();
   static final Map<Type, Function> defaultFunctions = {
-    Type.INT : (a) => '${getDidgitString(int.parse(a))}',
-    Type.INTEGER : (a) => '${getDidgitString(int.parse(a))}',
-    Type.CHAR : (a) => '${getDidgitString(int.parse(a))}',
-    Type.VARCHAR : (a) => '${getDidgitString(int.parse(a))}',
+    Type.INT : (a) => '${getDigitString(int.parse(a))}',
+    Type.INTEGER : (a) => '${getDigitString(int.parse(a))}',
+    Type.CHAR : (a) => '${getDigitString(int.parse(a))}',
+    Type.VARCHAR : (a) => '${getDigitString(int.parse(a))}',
     Type.ENUM : (a) => '${a.split(',')[rng.nextInt(a.split(',').length-1)]}',
     Type.UNKNOWN : (a) => r'\N',
   };
 
-  static String getDidgitString(int n) {
+  static String getDigitString(int n) {
     var sb = new StringBuffer();
     for (var i = 0; i < 4; i++) {
       sb.write(rng.nextInt(10));
